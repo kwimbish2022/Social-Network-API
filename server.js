@@ -4,11 +4,10 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3009;
 
-app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-app.use(require('./models'));
 app.use(require('./routes'));
 
 mongoose.connect(
